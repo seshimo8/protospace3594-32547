@@ -35,8 +35,8 @@ class PrototypesController < ApplicationController
   def update
     @prototype = Prototype.find(params[:id])
     move_to_index(@prototype)
-    if prototype.update(prototype_params)
-      redirect_to prototype_path(prototype)
+    if @prototype.update(prototype_params)
+      redirect_to prototype_path(@prototype)
     else
       render :edit
     end
@@ -46,8 +46,8 @@ class PrototypesController < ApplicationController
   def destroy
     @prototype = Prototype.find(params[:id])
     move_to_index(@prototype)
-    prototype.destroy
-    if prototype.destroy
+    @prototype.destroy
+    if @prototype.destroy
       redirect_to root_path
     end
     
